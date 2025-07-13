@@ -105,3 +105,7 @@ typings/
 
 # Electron-Forge
 out/
+
+http-client.private.env.json
+
+**/build/
