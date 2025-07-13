@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "check-dependency": {
+      "command": "node",
+      "args": ["./build/index.js"],
+      "name": "依赖安全审计",
+      "description": "检查项目依赖的安全漏洞，提供详细的漏洞报告和修复建议",
+      "version": "1.0.0",
+      "capabilities": {
+        "tools": [
+          {
+            "name": "audit_it",
+            "description": "审计项目依赖的安全漏洞",
+            "parameters": {
+              "dependencies": {
+                "type": "object",
+                "description": "依赖对象，键为包名，值为版本号",
+                "example": {
+                  "react": "^18.2.0",
+                  "axios": "^1.6.7",
+                  "lodash": "4.17.21"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "environment": {
+        "NODE_ENV": "production"
+      },
+      "workingDirectory": "./",
+      "timeout": 30000,
+      "retry": {
+        "enabled": true,
+        "maxRetries": 3,
+        "delay": 1000
+      }
+    }
+  }
+}
